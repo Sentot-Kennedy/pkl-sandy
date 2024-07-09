@@ -1,0 +1,100 @@
+body {
+  width: 70%;
+  margin: auto;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.mainheading {
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  text-align: left;
+  font-weight: 700;
+}
+
+h1,h2 {
+  font-family: system-ui, -apple-system;
+}
+
+img {
+  width: 100%;
+  height: auto;  
+}
+
+.content {
+  width: 100%;
+  font-size: 20px;
+  font-family: system-ui, -apple-system;
+  color: #4d4d4d;
+  line-height: 1.8;
+}
+
+.text {
+  color: blue;
+}
+
+.box {
+  width: 60%;
+  background-color: #efefef;
+  padding: 20px 20px;
+  border: 1px solid;
+  font-size: 95%;
+}
+
+.item-list{
+  color: blue;
+  margin-left: 20px;
+}
+
+.text:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+a.item:hover {
+  border-bottom-style: dotted;
+  border-width: 1px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  width: 100%;
+  font-family:Verdana,Tahoma, sans-serif;
+}
+
+tr {
+  color: rgb(53, 52, 52);
+}
+
+td {
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+th {
+  border: 1px solid black;
+  text-align: left;
+}
+
+th,td {
+  padding: 10px;
+  font-size: 60%;
+}
+
+tr.tableblok{
+  background-color:#efefef;
+}
+
+tr:hover {
+  background-color: #878484;
+}
+
+tr.tableblok:hover {
+  background-color:rgb(163, 163, 163);
+}
