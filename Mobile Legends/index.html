@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Legends Heroes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #1a1a1a, #333333);
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 100px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 1100px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.9em;
+            color: #ffcc00;
+        }
+
+        .heroes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero {
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 0 1 calc(20% - 20px);
+            max-width: 120px;
+            text-align: center;
+            background-color: #444444;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .hero img {
+            width: 100px;
+            height: 140px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .hero:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        #selected-hero-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #selected-hero {
+            background-color: #282828;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 10px;
+            font-size: 1.2em;
+            color: #ffffff;
+            text-align: left;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #selected-hero img {
+            width: 300px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        #selected-hero h2 {
+            margin: 0;
+            color: #ffcc00;
+        }
+
+        #selected-hero p {
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        #selected-hero ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #selected-hero ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #5d5c5c;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #selected-hero ul li img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        #selected-hero ul li div {
+            flex: 1;
+        }
+
+        #back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #back-button:hover {
+            background-color: #e6b800;
+        }
+
+        #title.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Choose Heroes</h1>
+        <div class="heroes">
+            <div class="hero" onclick="selectHero('Khaleed')">
+                <img src="Gambar/Khaleed/Khaleed-2.jpg" alt="Khaleed">
+                <p>Khaleed</p>
+            </div>
+            <div class="hero" onclick="selectHero('Arlott')">
+                <img src="Gambar/Arlott/Arlott-new.jpg" alt="Arlott">
+                <p>Arlott</p>
+            </div>
+            <div class="hero" onclick="selectHero('Balmond')">
+                <img src="Gambar/Balmond/Balmond Mobile Legends Wallpaper Hd.jpeg" alt="Balmond">
+                <p>Balmond</p>
+            </div>
+            <div class="hero" onclick="selectHero('Helcurt')">
+                <img src="Gambar/Helcurt/Helcurt Mobile Legends Wallpaper HD.jpeg" alt="Helcurt">
+                <p>Helcurt</p>
+            </div>
+            <div class="hero" onclick="selectHero('Lapu-Lapu')">
+                <img src="Gambar/Lapu/Lapu-2.png" alt="Lapu-Lapu">
+                <p>Lapu-Lapu</p>
+            </div>
+            <div class="hero" onclick="selectHero('Martis')">
+                <img src="Gambar/Martis/Martis-2.jpg" alt="Martis">
+                <p>Martis</p>
+            </div>
+            <div class="hero" onclick="selectHero('Minotaur')">
+                <img src="Gambar/Mino/Mino-new.jpg" alt="Minotaur">
+                <p>Minotaur</p>
+            </div>
+            <div class="hero" onclick="selectHero('Paquito')">
+                <img src="Gambar/Paquito/Paquito-2.jpg" alt="Paquito">
+                <p>Paquito</p>
+            </div>
+            <div class="hero" onclick="selectHero('Terizla')">
+                <img src="Gambar/Terizla/Terizla-2.jpg" alt="Terizla">
+                <p>Terizla</p>
+            </div>
+            <div class="hero" onclick="selectHero('Thamuz')">
+                <img src="Gambar/Thamuz/Thamuz-2.jpg" alt="Thamuz">
+                <p>Thamuz</p>
+            </div>
+        </div>
+        <div id="selected-hero-container">
+            <div id="selected-hero"></div>
+            <button id="back-button" onclick="goBack()">Back</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
