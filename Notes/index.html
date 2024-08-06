@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes_Css_Biasa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #565454;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #ff0404;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e1e8ed;
+            border-radius: 5px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #1da1f2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(29, 161, 242, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .button_group {
+            display: flex;
+            justify-content: space-between;
+            /* width: 100%; */
+        }
+
+        .button_group button {
+            background-color: #fa14c4;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button_group button:hover {
+            background-color: #292c29;
+        }
+
+        .button_group button:last-child {
+            background-color: #fa14c4;
+        }
+
+        .button_group button:last-child:hover {
+            background-color: #292c29;
+        }
+
+        .switch_link {
+            color: #1da1f2;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .user_info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .user_info p {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .notes-box {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .notes-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: left;
+        }
+
+        .note_list {
+            background-color: #ffffff;
+            padding: 60px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            word-wrap: break-word;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .notes-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .notes-header h1 {
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .notes-header .user_info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notes-header .user_info p {
+            margin-right: 20px;
+        }
+
+        .notes-header button {
+            padding: 12px 8px;
+            border-radius: 5px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .notes-header button:hover {
+            background-color: #e80d0d;
+        }
+
+        .note_list:hover {
+            transform: scale(1.02);
+        }
+
+        .note_list .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .note_list .head h3 {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .note_list .button_group {
+            display: flex;
+            gap: 10px;
+            align-items: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Register -->
+    <section class="register form-container" style="display: none;">
+        <form id="registerForm">
+            <h1>Register</h1>
+            <input type="text" id="rfirstName" name="firstname" placeholder="First Name" required />
+            <input type="text" id="rlastName" name="lastname" placeholder="Last Name" required />
+            <input type="email" id="emailRegister" name="email" placeholder="Email" required />
+            <input type="password" id="passwordRegister" name="password" placeholder="Password" required />
+            <input type="password" id="cpasswordRegister" name="cpassword" placeholder="Confirm Password" required />
+            <div class="button_group">
+                <button type="button" onclick="switchDisplay('.login')">Back to Login</button>
+                <button type="submit" onclick="register(event)">Register</button>
+            </div>
+            <p class="switch_link" onclick="switchDisplay('.login')">Already have an account? Login here.</p>
+        </form>
+    </section>
+
+    <!-- Login -->
+    <section class="login form-container" style="display: none;">
+        <form id="loginForm">
+            <h1>Login</h1>
+            <input type="email" id="loginEmail" name="email" placeholder="Email" required />
+            <input type="password" id="passwordEmail" name="password" placeholder="Password" required />
+            <div class="button_group">
+                <button type="button" onclick="switchDisplay('.register')">Register</button>
+                <button type="submit" onclick="login(event)">Login</button>
+            </div>
+            <p class="switch_link" onclick="switchDisplay('.register')">Don't have an account? Register here.</p>
+        </form>
+    </section>
+
+    <!-- Home -->
+    <section class="home" style="display: none;">
+        <div class="notes-box">
+            <div class="notes-header">
+                <h1>List Note</h1>
+                <div class="user_info">
+                    <p id="email"></p>
+                    <span></span>
+                    <a href="" onclick="logout()" style="color: #1da1f2; text-decoration: none;">Logout</a>
+                </div>
+                <button onclick="switchDisplay('.add')">Add Note</button>
+            </div>
+            <div class="notes-container" id="notes"></div>
+        </div>
+    </section>
+
+    <!-- Add -->
+    <section class="add" style="display: none;">
+        <form id="addForm" class="form-container">
+            <h1>Add Note</h1>
+            <input type="text" name="title" id="addTitle" placeholder="Title" required />
+            <textarea name="content" id="addContent" placeholder="Content" required></textarea>
+            <div class="button_group">
+                <button type="button" onclick="switchDisplay('.home')">Cancel</button>
+                <button type="submit" onclick="addNote(event)">Add</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Edit -->
+    <section class="edit" style="display: none;">
+        <form id="editForm" class="form-container">
+            <h1>Edit Note</h1>
+            <input type="hidden" name="id" id="editId">
+            <input type="text" name="title" id="editTitle" placeholder="Title" required>
+            <textarea name="content" id="editContent" placeholder="Content" required></textarea>
+            <div class="button_group">
+                <button type="button" onclick="switchDisplay('.home')">Cancel</button>
+                <button type="submit" onclick="editNote(event)">Save</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let sectionLogin = document.querySelector(".login");
+            let sectionHome = document.querySelector(".home");
+            let sectionAdd = document.querySelector(".add");
+            let sectionEdit = document.querySelector(".edit");
+
+            if (!localStorage.getItem("token")) {
+                sectionLogin.style.display = "block";
+            } else {
+                document.querySelector("#email").innerText = localStorage.getItem("email");
+                sectionHome.style.display = "block";
+                getNotes();
+            }
+        });
+
+        function switchDisplay(sectionClass) {
+            document.querySelectorAll("section").forEach(s => {
+                s.style.display = "none";
+            });
+            document.querySelector(sectionClass).style.display = "block";
+        }
+
+        async function getNotes() {
+            await fetch("https://api.pkl-edusupe.my.id/notes", {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        document.getElementById("notes").innerHTML = "";
+                        resp.data.forEach(note => {
+                            let noteElement = document.createElement("div");
+                            noteElement.classList.add("note_list");
+                            noteElement.innerHTML = `
+                    <div class="head">
+                        <h3>${note.title}</h3>
+                        <div class="button_group">
+                            <button onclick="showEditNote('${note.id}')">Edit</button>
+                            <button onclick="deleteNote('${note.id}')">Delete</button>
+                        </div>
+                    </div>
+                    <p>${note.content}</p>
+                `;
+                            document.getElementById("notes").appendChild(noteElement);
+                        });
+                    }
+                });
+        }
+
+
+        async function register(e) {
+            e.preventDefault();
+            let firstname = document.getElementById('rfirstName').value;
+            let lastname = document.getElementById('rlastName').value;
+            let email = document.getElementById('emailRegister').value;
+            let password = document.getElementById('passwordRegister').value;
+            let cpassword = document.getElementById('cpasswordRegister').value;
+
+            await fetch("https://api.pkl-edusupe.my.id/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstname,
+                    lastname,
+                    email,
+                    password,
+                    cpassword,
+                }),
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        document.querySelector("#email").innerText = resp.data.email;
+                        localStorage.setItem("email", resp.data.email);
+                        localStorage.setItem("token", resp.data.token);
+                        switchDisplay('.home');
+                        getNotes();
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        async function login(e) {
+            e.preventDefault();
+            let email = document.getElementById('loginEmail').value;
+            let password = document.getElementById('passwordEmail').value;
+
+            await fetch("https://api.pkl-edusupe.my.id/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                }),
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.data?.token) {
+                        document.querySelector("#email").innerText = resp.data.email;
+                        localStorage.setItem("email", resp.data.email);
+                        localStorage.setItem("token", resp.data.token);
+                        switchDisplay('.home');
+                        getNotes();
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        async function addNote(e) {
+            e.preventDefault();
+            let title = document.getElementById("addTitle").value;
+            let content = document.getElementById("addContent").value;
+
+            await fetch("https://api.pkl-edusupe.my.id/notes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify({
+                    title,
+                    content,
+                }),
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        switchDisplay('.home');
+                        document.getElementById("notes").innerHTML = "";
+                        getNotes();
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        async function showEditNote(id) {
+            await fetch(`https://api.pkl-edusupe.my.id/notes/${id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        document.getElementById("editId").value = resp.data.id;
+                        document.getElementById("editTitle").value = resp.data.title;
+                        document.getElementById("editContent").value = resp.data.content;
+                        switchDisplay('.edit');
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        async function editNote(e) {
+            e.preventDefault();
+            let id = document.getElementById("editId").value;
+            let title = document.getElementById("editTitle").value;
+            let content = document.getElementById("editContent").value;
+
+            await fetch(`https://api.pkl-edusupe.my.id/notes/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify({
+                    title,
+                    content,
+                }),
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        switchDisplay('.home');
+                        document.getElementById("notes").innerHTML = "";
+                        getNotes();
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        async function deleteNote(id) {
+            await fetch(`https://api.pkl-edusupe.my.id/notes/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+                .then(response => response.json())
+                .then(resp => {
+                    if (resp.success) {
+                        document.getElementById("notes").innerHTML = "";
+                        getNotes();
+                    } else {
+                        alert(resp.message);
+                    }
+                });
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('email');
+            switchDisplay('.login');
+        }
+    </script>
+</body>
+</html>
